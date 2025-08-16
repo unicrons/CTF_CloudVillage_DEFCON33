@@ -52,7 +52,6 @@ grep -A3 -B3 FLAG HevNovaDataBreachDynamoDB-databreach.json
         "S": "PART2FLAG{_D1sc0v3r_F0r3ns1cs}"
       }
     },
-    {
 ```
 
 ### Flag Reconstruction
