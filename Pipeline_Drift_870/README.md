@@ -1,8 +1,8 @@
 # Pipeline Drift - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Description](./Pipeline_Drift_870pts_part1.jpg)
+<img src="./Pipeline_Drift_870pts_part1.jpg" width="300">
 
 ## Challenge Overview
 

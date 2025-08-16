@@ -1,9 +1,9 @@
 # Incident Responder (930 Points)
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Part 1](./Incident_Responder_930pts_part1.jpg)
-![Challenge Part 2](./Incident_Responder_930pts_part2.jpg)
+<img src="./Incident_Responder_930pts_part1.jpg" width="300">
+<img src="./Incident_Responder_930pts_part2.jpg" width="300">
 
 ## Challenge Overview
 This incident response challenge involved analyzing CloudTrail logs and API Gateway endpoints to investigate a ransomware attack. We needed to trace the attack path through AWS services including DynamoDB and S3 to recover encrypted data and reconstruct the full flag.

@@ -1,8 +1,8 @@
 # Classified Registry - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Description](./Classified_Registry_300pts.jpg)
+<img src="./Classified_Registry_300pts.jpg" width="300">
 
 ## Challenge Overview
 

@@ -1,8 +1,8 @@
 # Spectre Heist - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Description](./Spectre_Heist_300pts.jpg)
+<img src="./Spectre_Heist_300pts.jpg" width="300">
 
 ## Challenge Overview
 

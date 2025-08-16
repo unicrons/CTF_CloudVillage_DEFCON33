@@ -1,9 +1,9 @@
 # CloUDwalker - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Part 1](./HiddenState_320pts_part1.jpg)
-![Challenge Part 2](./HiddenState_320pts_part2.jpg)
+<img src="./HiddenState_320pts_part1.jpg" width="300">
+<img src="./HiddenState_320pts_part2.jpg" width="300">
 
 ## Challenge Overview
 

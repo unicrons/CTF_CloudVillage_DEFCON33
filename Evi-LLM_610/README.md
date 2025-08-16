@@ -1,9 +1,9 @@
 # Evi-LLM - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Part 1](./Evi-LLM_610pts_part1.jpg)
-![Challenge Part 2](./Evi-LLM_610pts_part2.jpg)
+<img src="./Evi-LLM_610pts_part1.jpg" width="300">
+<img src="./Evi-LLM_610pts_part2.jpg" width="300">
 
 ## Challenge Overview
 

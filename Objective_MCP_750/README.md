@@ -1,8 +1,8 @@
 # Objective MCP - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Description](./Objective_MCP_750pts.jpg)
+<img src="./Objective_MCP_750pts.jpg" width="300">
 
 ## Challenge Overview
 

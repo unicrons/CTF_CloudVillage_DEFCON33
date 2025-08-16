@@ -11,29 +11,27 @@ The Actions challenge provided us with base64-encoded values that appeared to be
 
 ## Initial Discovery
 
-Inside the bucket there was a html file referencing a github organization: https://github.com/HEXNOVA404
-
-![](./hexnova.png)
-
-There was a couple of repos, and in one of them there was a [github action log that leaked some useful info](https://github.com/HEXNOVA404/Organisation-Vault/actions/runs/16701033362/job/47272191258):
-
-![](leaky_job.png)
-
-We were given Role ARN and a secre_id as base64-encoded strings:
+We were given two base64-encoded strings:
 - `YXJuOmF3czppYW06OjE3MDk3NDUwNjUxNTpyb2xlL2dpdGh1Yi1kZXBsb3ltZW50LXJvbGU=`
 - `aW50ZXJuYWwvc2VjcmV0cy9pZC12Mg==`
 
-Decoding them:
+## Solution
+
+Decoding the first base64 string revealed an AWS IAM role ARN:
 
 ```bash
 echo 'YXJuOmF3czppYW06OjE3MDk3NDUwNjUxNTpyb2xlL2dpdGh1Yi1kZXBsb3ltZW50LXJvbGU=' | base64 -d
-arn:aws:iam::170974506515:role/github-deployment-role
-
-echo 'aW50ZXJuYWwvc2VjcmV0cy9pZC12Mg==' | base64 -d
-internal/secrets/id-v2
+# Output: arn:aws:iam::170974506515:role/github-deployment-role
 ```
 
-We could now use the role to access the secret:
+The second string decoded to a secret path:
+
+```bash
+echo 'aW50ZXJuYWwvc2VjcmV0cy9pZC12Mg==' | base64 -d
+# Output: internal/secrets/id-v2
+```
+
+#TODO: Add details about how these decoded values were used to access the GitHub Actions workflow and retrieve the flag, including any specific steps taken to exploit the GitHub deployment role or access the secret.
 
 ## Key Takeaways
 
