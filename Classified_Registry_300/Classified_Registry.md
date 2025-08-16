@@ -1,5 +1,9 @@
 # Classified Registry - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Description](./Classified_Registry_300pts.jpg)
+
 ## Challenge Overview
 
 The Classified Registry challenge involved container security and environment variable enumeration. The challenge centered around discovering sensitive information stored within container environment variables.

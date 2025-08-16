@@ -1,5 +1,9 @@
 # HiddenState - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Description](./Orion_740pts.jpg)
+
 ## Challenge Overview
 
 HiddenState was a Google Cloud Platform (GCP) security challenge that demonstrated the dangers of public cloud storage buckets with version history enabled and improper secret management in Terraform state files.

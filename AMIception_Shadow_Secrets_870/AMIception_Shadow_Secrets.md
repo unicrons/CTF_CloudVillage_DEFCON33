@@ -1,5 +1,12 @@
 # AMIception: Shadow Secrets - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Part 1](./AMIception_Shadow_Secrets_870pts.jpg)
+![Challenge Part 2](./AMIception_Shadow_Secrets_870pts_part2.jpg)
+![Challenge Part 3](./AMIception_Shadow_Secrets_870pts_part3.jpg)
+![Challenge Part 4](./AMIception_Shadow_Secrets_870pts_part4.jpg)
+
 ## Challenge Overview
 
 AMIception was a complex AWS-focused challenge that required us to navigate through multiple layers of AWS infrastructure, GitHub repositories, and AMI (Amazon Machine Image) configurations to uncover hidden secrets.

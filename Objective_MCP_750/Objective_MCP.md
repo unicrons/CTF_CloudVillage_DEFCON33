@@ -1,5 +1,9 @@
 # Objective MCP - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Description](./Objective_MCP_750pts.jpg)
+
 ## Challenge Overview
 
 Objective MCP was a sophisticated Azure cloud security challenge that involved exploiting Model Context Protocol (MCP) servers and Azure Key Vault misconfigurations to demonstrate RBAC privilege escalation vulnerabilities.

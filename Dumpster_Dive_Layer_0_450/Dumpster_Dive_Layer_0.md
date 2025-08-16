@@ -1,5 +1,9 @@
 # DumpsterDive Layer 0 - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Description](./Dumpster_Dive_Layer_0_450pts.jpg)
+
 ## Challenge Overview
 
 DumpsterDive Layer 0 was a container forensics challenge that required analyzing Docker image layers to discover hidden flags embedded within the container filesystem.

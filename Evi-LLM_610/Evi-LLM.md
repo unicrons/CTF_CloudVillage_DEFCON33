@@ -1,5 +1,10 @@
 # Evi-LLM - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Part 1](./Evi-LLM_610pts_part1.jpg)
+![Challenge Part 2](./Evi-LLM_610pts_part2.jpg)
+
 ## Challenge Overview
 
 Evi-LLM was a fascinating challenge that combined source code analysis, API security, and Large Language Model (LLM) prompt injection techniques to extract sensitive information from a misconfigured AI service.

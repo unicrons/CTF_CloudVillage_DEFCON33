@@ -1,5 +1,10 @@
 # CloUDwalker - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Part 1](./HiddenState_320pts_part1.jpg)
+![Challenge Part 2](./HiddenState_320pts_part2.jpg)
+
 ## Challenge Overview
 
 CloUDwalker was an AWS cloud security challenge that combined Server-Side Request Forgery (SSRF) exploitation with cloud metadata service access and multi-service AWS reconnaissance.

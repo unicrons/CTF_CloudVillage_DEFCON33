@@ -1,5 +1,10 @@
 # Hexform - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Part 1](./HEX-FORM_820pts_part1.jpg)
+![Challenge Part 2](./HEX-FORM_820pts_part2.jpg)
+
 ## Challenge Overview
 
 Hexform was an intricate Infrastructure as Code (IaC) challenge that required extracting a 7-part deactivation key from Terraform configuration files without executing `terraform plan` or `terraform apply` commands.

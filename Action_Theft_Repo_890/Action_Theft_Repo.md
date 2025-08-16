@@ -1,5 +1,10 @@
 # Actions - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Part 1](./Action_Theft_Repo_890pts_part1.jpg)
+![Challenge Part 2](./Action_Theft_Repo_890pts_part2.jpg)
+
 ## Challenge Overview
 
 The Actions challenge provided us with base64-encoded values that appeared to be related to GitHub Actions workflows and AWS IAM roles.

@@ -1,5 +1,9 @@
 # TimeBomb (850 Points)
 
+## Challenge Screenshots
+
+![Challenge Description](./TimeBomb_850pts.jpg)
+
 ## Challenge Overview
 TimeBomb was a binary exploitation challenge featuring a C program with a classic format string vulnerability. The challenge was accessible via `nc timebomb-dc33.hexnova.quest 9999` and required exploiting the vulnerability to extract a flag stored as an environment variable.
 

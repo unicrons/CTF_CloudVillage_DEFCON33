@@ -1,5 +1,9 @@
 # Pipeline Drift - Cloud Village CTF 2025
 
+## Challenge Screenshots
+
+![Challenge Description](./Pipeline_Drift_870pts_part1.jpg)
+
 ## Challenge Overview
 
 Pipeline Drift was an AWS cloud security challenge that demonstrated how leaked credentials in CI/CD pipelines can expose infrastructure drift - orphaned resources that weren't properly cleaned up during infrastructure changes.
