@@ -5,43 +5,47 @@
 <img src="./Incident_Responder_930pts_part1.jpg" width="300">
 <img src="./Incident_Responder_930pts_part2.jpg" width="300">
 
-## Challenge Overview
-This incident response challenge involved analyzing CloudTrail logs and API Gateway endpoints to investigate a ransomware attack. We needed to trace the attack path through AWS services including DynamoDB and S3 to recover encrypted data and reconstruct the full flag.
-
-## Solution Steps
-
-### Initial Analysis
+## Initial Analysis
 We started by examining the provided CloudTrail logs and identified suspicious activity involving a Lambda function and API Gateway endpoints. The logs revealed a ransomware encryption operation targeting specific AWS resources.
 
-### Key Discovery - API Endpoint
 From the CloudWatch logs, we discovered an API Gateway endpoint:
 ```
 https://x7ia63zopb.execute-api.us-west-2.amazonaws.com
 ```
 
-### DynamoDB Investigation
-Our first attempt was to decrypt the DynamoDB table `HevNovaDataBreachDynamoDB-databreach`:
-```bash
-curl https://x7ia63zopb.execute-api.us-west-2.amazonaws.com//decrypt/dynamodb/HevNovaDataBreachDynamoDB-databreach
+After doing a ton of grepping I found an interesting API Gateway endpoint:
+```
+curl https://x7ia63zopb.execute-api.us-west-2.amazonaws.com/decrypt/s3/
+
+{"message": "Missing path parameters. Expected /encrypt|decrypt/{resourceType}/{name}/{identifier} or /encrypt/{resourceType}/{name}", "example_s3_encrypt": "/encrypt/s3/your-bucket-name/path/to/object.txt", "example_s3_decrypt": "/decrypt/s3/your-bucket-name/path/to/object.txt", "example_dynamodb_single": "/encrypt/dynamodb/YourTableName/item-id", "example_dynamodb_all": "/encrypt/dynamodb/YourTableName", "example_dynamodb_decrypt": "/decrypt/dynamodb/YourTableName"}%
 ```
 
-This revealed that the encryption/decryption service was operational and had processed items in the DynamoDB table.
+Doing another ton of grepping I made a list of suspicious s3 and dynamodb resources:
+```
+/s3/hexnovadatabreach-databreach-content-dolphin/ImportantInformation.tx
+/s3/hexnovadatabreach-databreach-content-dolphin/ImportantInformation.txt
+/s3/hexnovadatabreach-databreach-content-dolphin/NoteTaking.txt
+CloudWatch.json:            "message": "Processing single item with identifier: ImportantItem\n",
+CloudWatch.json:            "message": "Encrypted DynamoDB item with PK 'ImportantItem' in table 'HevNovaDataBreachDynamoDB-databreach
+CloudWatch.json:            "message": "Deleted DynamoDB item with PK 'ImportantItem' from table 'HevNovaDataBreachDynamoDB-databreach
+```
 
-### S3 Data Recovery
-The breakthrough came when we accessed the S3 bucket containing the encrypted data:
+
+First we accessed the data from s3:
 ```bash
 curl https://x7ia63zopb.execute-api.us-west-2.amazonaws.com/decrypt/s3/hexnovadatabreach-databreach-content-dolphin/ImportantInformation.txt
-```
 
-This returned the first part of the flag:
-```json
 {"status": "success", "message": "Decryption successful.", "content": "PART1FLAG{R35p0nd_N0w}\n"}
 ```
 
-### DynamoDB Flag Recovery
-Through further investigation of the DynamoDB table structure, we discovered the second part of the flag stored as:
-```
-{"S": "PART2FLAG{_D1sc0v3r_F0r3ns1cs}"}
+This returned the first part of the flag.
+
+Then we accessed the data from dynamodb:
+```bash
+curl https://x7ia63zopb.execute-api.us-west-2.amazonaws.com//decrypt/dynamodb/HevNovaDataBreachDynamoDB-databreach
+[...]
+{"S": "PART2FLAG{_D1sc0v3r_F0r3ns1cs}"}}, {"DefCon33PartitionKeyDynamoDB
+[...]
 ```
 
 ### Flag Reconstruction
@@ -50,27 +54,4 @@ Combining both parts revealed the complete flag:
 FLAG-{R35p0nd_N0w_D1sc0v3r_F0r3ns1cs}
 ```
 
-## Key Techniques
-- CloudTrail log analysis for incident investigation
-- API Gateway endpoint enumeration and exploitation
-- DynamoDB table scanning and data recovery
-- S3 object decryption through compromised services
-- Multi-source flag reconstruction
-
-## Tools Used
-- `curl` for API endpoint interaction
-- `grep` and text processing tools for log analysis
-- JSON parsing for data extraction
-
-#TODO: Add CloudTrail log analysis screenshots
-#TODO: Include detailed API response examples
-#TODO: Add timeline of the ransomware attack sequence
-
-## Lessons Learned
-This challenge demonstrated the importance of proper incident response procedures, including:
-- Thorough log analysis across multiple AWS services
-- Understanding ransomware attack patterns in cloud environments
-- Leveraging misconfigured decryption services during incident response
-- Reconstructing attack timelines from CloudTrail evidence
-
-The scenario highlighted how attackers can abuse legitimate AWS services and the critical role of forensic analysis in cloud incident response.
+Note: I've read different results from other writeups, this challenge was down for some time, not sure if something changed when they fixed it or I forgot to note something with the rush. 😅
