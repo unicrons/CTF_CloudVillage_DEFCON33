@@ -1,9 +1,9 @@
 # Actions - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Part 1](./Action_Theft_Repo_890pts_part1.jpg)
-![Challenge Part 2](./Action_Theft_Repo_890pts_part2.jpg)
+<img src="./Action_Theft_Repo_890pts_part1.jpg" width="300">
+<img src="./Action_Theft_Repo_890pts_part2.jpg" width="300">
 
 ## Challenge Overview
 
