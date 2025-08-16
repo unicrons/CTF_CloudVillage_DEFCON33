@@ -4,13 +4,82 @@
 
 <img src="./TimeBomb_850pts.jpg" width="300">
 
-## Challenge Overview
-TimeBomb was a binary exploitation challenge featuring a C program with a classic format string vulnerability. The challenge was accessible via `nc timebomb-dc33.hexnova.quest 9999` and required exploiting the vulnerability to extract a flag stored as an environment variable.
+## Initial Analysis
 
-## Solution Steps
+Inside the docker container we found the code from the challenge:
+```c
+root@aee3f9711c91:/home/ctf# cat challenge.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <time.h>
+#include <signal.h>
 
-### Initial Analysis
-We started by examining the vulnerable C code, which contained a critical format string bug in the `vuln()` function:
+void connection() {
+    char *lambda_url = getenv("LAMBDA_URL");
+    char *token = getenv("SECRET_TOKEN");
+
+    if (!lambda_url || !token) {
+        fprintf(stderr, "[!] Missing environment variables.\n");
+        exit(1);
+    }
+
+    printf("[*] Executing Lambda...\n");
+
+    char cmd[512];
+    snprintf(cmd, sizeof(cmd),
+             "curl -s -X POST %s -H 'Content-Type: application/json' -d '{\"token\":\"%s\"}'",
+             lambda_url, token);
+
+    system(cmd);
+    fflush(stdout);
+    exit(0);
+}
+
+
+void timebomb() {
+    puts("[----------------------------------------]");
+    puts("[  TIMEBOMB TERMINAL: MISSION INTERFACE  ]");
+    puts("[----------------------------------------]");
+    puts("> DEVICE ARMED: DESTRUCT SEQUENCE INITIATED");
+    sleep(1);
+    puts("> SECURITY BREACH DETECTED — TRACE PROTOCOL ENGAGED");
+    for (int i = 5; i > 0; --i) {
+        printf("> SYSTEM WIPE IN: T-minus %d seconds...\n", i);
+    fflush(stdout);
+    sleep(1);
+}
+}
+
+
+void vuln() {
+    char buffer[512];
+    puts("[-----------------------------------------]");
+    puts("[  TIMEBOMB TERMINAL: TERMINAL INTERFACE  ]");
+    puts("[-----------------------------------------]");
+    puts(" [CLASSIFIED] Authorization required...");
+    printf("Enter your OVERRIDE CODE: ");
+    fflush(stdout);
+    fgets(buffer, sizeof(buffer), stdin);
+    printf(buffer);
+    printf("\n[-] Done.\n");
+    fflush(stdout);
+    fflush(stdout);
+    exit(0);
+}
+
+
+
+int main() {
+    timebomb();
+    vuln();
+
+    return 0;
+}
+```
+
+We (meaning me and an LLM) started by examining the C code, which contained a critical format string bug in the `vuln()` function:
 
 ```c
 void vuln() {
@@ -23,7 +92,7 @@ void vuln() {
 
 The `printf(buffer)` call directly prints user input without a format specifier, creating a textbook format string vulnerability.
 
-### Vulnerability Confirmation
+## Vulnerability Confirmation
 Our first step was confirming the format string bug with a simple payload:
 ```
 %x.%x.%x.%x.%x.%x.%x.%x
@@ -31,7 +100,6 @@ Our first step was confirming the format string bug with a simple payload:
 
 This revealed stack contents in hexadecimal format, confirming the vulnerability was exploitable and showing us the stack layout.
 
-### Finding Input Position
 To locate our input on the stack, we used:
 ```
 AAAA%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x
@@ -39,45 +107,17 @@ AAAA%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x.%x
 
 We found our input (AAAA = 0x41414141) at stack position 6, which meant we could use `%6$n` for arbitrary writes if needed.
 
-### Stack Reconnaissance 
 We systematically mapped the stack using payloads like:
-- `%40$p.%41$p...%50$p` 
+- `%40$p.%41$p...%50$p`
 - `%85$p.%90$p...%120$p`
 
 This revealed promising high memory addresses around positions 105-120 that could point to environment variables.
 
-### Environment Variable Extraction
+## Environment Variable Extraction
 The key insight was that the flag was stored as an environment variable, not requiring code execution. We used direct parameter access to read strings from specific stack positions:
 
 - `%105$s` → `AWS_EXECUTION_ENV=AWS_ECS_FARGATE`
 - `%110$s` → `LAMBDA_URL=https://yavdhl4qozqpiugwirgyfhj4hm0hpykh.lambda-url.us-west-1.on.aws/`
 - `%115$s` → `FLAG=FLAG-{Reverse7heBombt0trigg3rflagc4fb5}` ✅
 
-### Flag Recovery
-The successful payload `%115$s` revealed the complete flag:
-```
-FLAG-{Reverse7heBombt0trigg3rflagc4fb5}
-```
-
-## Key Techniques
-- Format string vulnerability exploitation
-- Stack layout analysis and reconnaissance  
-- Direct parameter access using `%N$s` syntax
-- Environment variable extraction from memory
-- Binary exploitation without code execution
-
-## Tools Used
-- `nc` for network connection
-- Format string payloads for memory reading
-- Systematic stack position enumeration
-- Manual exploitation techniques
-
-## Lessons Learned
-This challenge demonstrated several important concepts:
-- Format string vulnerabilities remain dangerous and common
-- Environment variables are stored at predictable stack locations
-- Sometimes information disclosure is sufficient without achieving code execution
-- Systematic approach to stack reconnaissance is crucial for exploitation
-- The `%N$s` syntax provides powerful direct memory access capabilities
-
-The solution highlighted how format string bugs can be leveraged for information disclosure, showing that not all binary exploitation requires achieving code execution - sometimes reading sensitive data from memory is the intended path.
+It was crazy how easy was for the LLM to find and exploit the vulnerability... I mean me!

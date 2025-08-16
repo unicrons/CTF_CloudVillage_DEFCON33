@@ -3,7 +3,7 @@
 This repository contains writeups and solutions for the [Cloud Village CTF held at DEFCON 33](https://www.cloud-village.org/dc33).
 
 
-## Challenge Overview
+## Challenges Overview
 
 | Challenge Name | Points | Folder | Status | Writeup By |
 |----------------|--------|--------|--------|-----------|
