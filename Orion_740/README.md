@@ -1,8 +1,8 @@
 # HiddenState - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Description](./Orion_740pts.jpg)
+<img src="./Orion_740pts.jpg" width="300">
 
 ## Challenge Overview
 

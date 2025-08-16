@@ -1,9 +1,9 @@
 # Hexform - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Part 1](./HEX-FORM_820pts_part1.jpg)
-![Challenge Part 2](./HEX-FORM_820pts_part2.jpg)
+<img src="./HEX-FORM_820pts_part1.jpg" width="300">
+<img src="./HEX-FORM_820pts_part2.jpg" width="300">
 
 ## Challenge Overview
 

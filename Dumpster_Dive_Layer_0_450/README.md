@@ -1,8 +1,8 @@
 # DumpsterDive Layer 0 - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Description](./Dumpster_Dive_Layer_0_450pts.jpg)
+<img src="./Dumpster_Dive_Layer_0_450pts.jpg" width="300">
 
 ## Challenge Overview
 

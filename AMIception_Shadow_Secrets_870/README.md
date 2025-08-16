@@ -1,11 +1,11 @@
 # AMIception: Shadow Secrets - Cloud Village CTF 2025
 
-## Challenge Screenshots
+## Challenge Description
 
-![Challenge Part 1](./AMIception_Shadow_Secrets_870pts.jpg)
-![Challenge Part 2](./AMIception_Shadow_Secrets_870pts_part2.jpg)
-![Challenge Part 3](./AMIception_Shadow_Secrets_870pts_part3.jpg)
-![Challenge Part 4](./AMIception_Shadow_Secrets_870pts_part4.jpg)
+<img src="./AMIception_Shadow_Secrets_870pts.jpg" width="300">
+<img src="./AMIception_Shadow_Secrets_870pts_part2.jpg" width="300">
+<img src="./AMIception_Shadow_Secrets_870pts_part3.jpg" width="300">
+<img src="./AMIception_Shadow_Secrets_870pts_part4.jpg" width="300">
 
 ## Challenge Overview
 
