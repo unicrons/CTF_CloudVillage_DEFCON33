@@ -42,10 +42,17 @@ This returned the first part of the flag.
 
 Then we accessed the data from dynamodb:
 ```bash
-curl https://x7ia63zopb.execute-api.us-west-2.amazonaws.com//decrypt/dynamodb/HevNovaDataBreachDynamoDB-databreach
-[...]
-{"S": "PART2FLAG{_D1sc0v3r_F0r3ns1cs}"}}, {"DefCon33PartitionKeyDynamoDB
-[...]
+curl https://x7ia63zopb.execute-api.us-west-2.amazonaws.com//decrypt/dynamodb/HevNovaDataBreachDynamoDB-databreach > HevNovaDataBreachDynamoDB-databreach.json
+# Output first to file because it was too long (that's what she said)
+
+grep -A3 -B3 FLAG HevNovaDataBreachDynamoDB-databreach.json
+    },
+    {
+      "DefCon33PartitionKeyDynamoDB": {
+        "S": "PART2FLAG{_D1sc0v3r_F0r3ns1cs}"
+      }
+    },
+    {
 ```
 
 ### Flag Reconstruction
@@ -53,5 +60,3 @@ Combining both parts revealed the complete flag:
 ```
 FLAG-{R35p0nd_N0w_D1sc0v3r_F0r3ns1cs}
 ```
-
-Note: I've read different results from other writeups, this challenge was down for some time, not sure if something changed when they fixed it or I forgot to note something with the rush. 😅
