@@ -93,7 +93,7 @@ prowler aws --region us-west-2
 ```
 
 The OCSF output showed some RDS resources worth digging:
-![alt text](image.png)
+![](prowler_output.png)
 
 ## The "Pipeline Drift"
 The `legacy-app-db-snapshot` resonated with the concept of "pipeline drift" - leftover infrastructure that should have been cleaned up when the original database was decommissioned during infrastructure changes.
