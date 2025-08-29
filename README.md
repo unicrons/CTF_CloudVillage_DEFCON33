@@ -14,6 +14,7 @@ This repository contains writeups and solutions for the [Cloud Village CTF held 
 | TimeBomb                  | 850    | [TimeBomb_850/](./challenges/TimeBomb_850/)                                   | [📖 Writeup](./challenges/TimeBomb_850/README.md)                  | [andoniaf](https://github.com/andoniaf)       |
 | HEX-FORM                  | 820    | [HEX-FORM_820/](./challenges/HEX-FORM_820/)                                   | [📖 Writeup](./challenges/HEX-FORM_820/README.md)                  | [sanchezpaco](https://github.com/sanchezpaco) |
 | Objective MCP             | 750    | [Objective_MCP_750/](./challenges/Objective_MCP_750/)                         | [📖 Writeup](./challenges/Objective_MCP_750/README.md)             | [sanchezpaco](https://github.com/sanchezpaco) |
+| Orion                     | 740    | [Orion_740/](./challenges/Orion_740/)                                         | TBD                                                                | [sanchezpaco](https://github.com/sanchezpaco) |
 | Evi-LLM                   | 610    | [Evi-LLM_610/](./challenges/Evi-LLM_610/)                                     | [📖 Writeup](./challenges/Evi-LLM_610/README.md)                   | [pedrooot](https://github.com/pedrooot)       |
 | Dumpster Dive Layer 0     | 450    | [Dumpster_Dive_Layer_0_450/](./challenges/Dumpster_Dive_Layer_0_450/)         | [📖 Writeup](./challenges/Dumpster_Dive_Layer_0_450/README.md)     | [sanchezpaco](https://github.com/sanchezpaco) |  |
 | HiddenState               | 320    | [HiddenState_320/](./challenges/HiddenState_320/)                             | [📖 Writeup](./challenges/HiddenState_320/README.md)               | *TBD*                                         |
@@ -36,7 +37,6 @@ This repository contains writeups and solutions for the [Cloud Village CTF held 
 | Operation Ghost Identity     | 900    | [Operation_Ghost_Identity_900/](./challenges/Operation_Ghost_Identity_900/)         | ❌ Unsolved |
 | CipherSpoke NetOps           | 890    | [CipherSpoke_NetOps_890/](./challenges/CipherSpoke_NetOps_890/)                     | ❌ Unsolved |
 | BruteForce Login             | 780    | [BruteForceLogin_780/](./challenges/BruteForceLogin_780/)                           | ❌ Unsolved |
-| Orion                        | 740    | [Orion_740/](./challenges/Orion_740/)                                               | ❌ Unsolved |
 
 **Note:** The point values shown were dynamic during the competition, decreasing as more teams solved each challenge. The values listed represent the points earned at the time of solving.
 
